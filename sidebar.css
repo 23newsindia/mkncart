@@ -1,0 +1,1130 @@
+
+/* ===== MONOCHROME 3D THEME ===== */
+:root {
+  /* Color Variables */
+  --color-primary: #333333;
+  --color-primary-hover: #222222;
+  --color-secondary: #000000;
+  --color-secondary-hover: #333333;
+  --color-secondary-dark: #0635d3;
+  --color-secondary-darkest: #000000;
+  --color-secondary-hover-dark: #222222;
+  --color-text: #333333;
+  --color-text-light: #777777;
+  --color-background: #ffffff;
+  --color-border: #e0e0e0;
+  --color-border-light: #f0f0f0;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-highlight: rgba(255, 255, 255, 0.3);
+
+  /* Radius Variables */
+  --radius-sm: 5px;
+  --radius-md: 10px;
+  --radius-lg: 30px;
+
+  /* Transition Variables */
+  --transition: all 200ms ease;
+}
+
+/* ===== BASE STYLES ===== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: inherit;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+}
+
+a {
+  color: var(--color-text);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  color: var(--color-primary);
+}
+
+/* Apply coupon button - WildDragon style */
+#mini-cart-apply_coupon {
+  background: var(--wilddragon-secondary-dark) !important;
+  color: #fff !important;
+  font-family: inherit;
+  padding: 0.75em 1.5em;
+  font-weight: 900;
+  font-size: clamp(14px, 1.5vw, 16px);
+  letter-spacing: 0.5px;
+  border: 3px solid #000 !important;
+  border-radius: 0.5em;
+  box-shadow:
+    0.1em 0.1em 0 #000,
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  background-clip: padding-box;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+#mini-cart-apply_coupon:hover {
+  background: var(--wilddragon-secondary-hover) !important;
+  transform: translate(-0.05em, -0.05em);
+  box-shadow:
+    0.15em 0.15em 0 #000,
+    0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+#mini-cart-apply_coupon:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow:
+    0.05em 0.05em 0 #000,
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+#mini-cart-apply_coupon::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.5s ease;
+}
+
+#mini-cart-apply_coupon:hover::after {
+  left: 125%;
+}
+
+
+/* WildDragon Style â€“ Coupon Input Field */
+#mini-cart-add-coupon_code,
+.coupon input[type="text"],
+.coupon input.input-text {
+  width: 100%;
+  padding: 0.75em 1em;
+  font-size: clamp(14px, 1.5vw, 16px);
+  border: 2px solid #000;
+  border-radius: 0.5em;
+  background-color: #fff;
+  color: #333;
+  font-weight: 600;
+  font-family: inherit;
+  box-shadow:
+    0.1em 0.1em 0 #000,
+    0 4px 8px rgba(0, 0, 0, 0.1);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+#mini-cart-add-coupon_code:focus,
+.coupon input[type="text"]:focus,
+.coupon input.input-text:focus {
+  outline: none;
+  border-color: var(--wilddragon-secondary-dark);
+  background-color: #fafafa;
+  box-shadow:
+    0.15em 0.15em 0 var(--wilddragon-secondary-dark),
+    0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ===== UTILITY CLASSES ===== */
+/* Flex Utilities */
+.u-flex { display: flex; }
+.u-flex-column { flex-direction: column; }
+.u-flex-wrap { flex-wrap: wrap; }
+.u-align-center { align-items: center; }
+.u-align-start { align-items: flex-start; }
+.u-justify-center { justify-content: center; }
+.u-justify-between { justify-content: space-between; }
+.jse { justify-content: space-evenly; }
+
+/* Text Utilities */
+.u-text-center { text-align: center; }
+.u-text-uppercase { text-transform: uppercase; }
+.u-text-bold { font-weight: bold; }
+
+/* Spacing Utilities */
+.u-mt-5 { margin-top: 5px; }
+.u-mt-10 { margin-top: 10px; }
+.u-mr-10 { margin-right: 10px; }
+.u-pl-15 { padding-left: 15px; }
+
+/* Border Utilities */
+.u-rounded-sm { border-radius: var(--radius-sm); }
+.u-rounded-md { border-radius: var(--radius-md); }
+.u-rounded-lg { border-radius: var(--radius-lg); }
+
+/* Shadow & Transition Utilities */
+.u-shadow-sm { box-shadow: 0 0 6px 0 var(--color-shadow); }
+.u-transition { transition: var(--transition); }
+
+/* Font Size Utilities */
+.u-fs-15 { font-size: 15px !important; }
+.u-fs-16 { font-size: 16px !important; }
+.u-fs-20 { font-size: 20px !important; }
+.u-fs-21 { font-size: 21px !important; }
+
+/* Letter Spacing Utilities */
+.u-letter-spacing-3 { letter-spacing: 3px; }
+.u-letter-spacing-4 { letter-spacing: 4px; }
+
+/* Background Utilities */
+.u-bg-light { background-color: var(--color-border-light); }
+.u-bg-primary { background-color: var(--color-primary); }
+.u-bg-primary-hover { background-color: var(--color-primary-hover); }
+.u-bg-secondary { background-color: var(--color-secondary); }
+.u-bg-secondary-hover { background-color: var(--color-secondary-hover); }
+
+/* Color Utilities */
+.u-color-text { color: var(--color-text); }
+.u-color-text-light { color: var(--color-text-light); }
+.u-color-background { color: var(--color-background); }
+
+/* Border Color Utilities */
+.u-border-light { border-color: var(--color-border-light); }
+.u-border-primary { border-color: var(--color-primary); }
+.u-border-secondary { border-color: var(--color-secondary); }
+
+/* ===== SIDEBAR STRUCTURE ===== */
+.nasa-static-sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 9998;
+  width: 400px;
+  max-width: 80%;
+  background: var(--color-background);
+  transform: translateX(100%);
+  transition: transform 400ms ease;
+  display: flex;
+  flex-direction: column;
+}
+.nasa-static-sidebar.nasa-active {
+  transform: translateX(0);
+}
+
+.nasa-static-sidebar .widget_shopping_cart_content {
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex: 1 1 auto;
+  align-items: stretch;
+  flex-direction: column;
+}
+
+.nasa-static-sidebar .nasa-sidebar-tit {
+  font-size: 220%;
+  line-height: 45px;
+  font-weight: 800;
+  display: block;
+  margin: 0;
+  text-align: center;
+}
+
+.nasa-static-sidebar .nasa-sidebar-close a {
+  position: absolute;
+  z-index: 1;
+  background: var(--color-background);
+  border: 1px solid var(--color-border-light);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+
+.nasa-static-sidebar .nasa-sidebar-close a:hover {
+  background: var(--wilddragon-secondary-dark);
+  border-color: var(--wilddragon-secondary-dark);
+  color: white !important;
+}
+
+.nasa-static-sidebar .nasa-sidebar-close a:hover svg {
+  fill: white !important;
+  color: white !important;
+}
+
+
+
+
+
+
+
+
+/* ===== MINI CART ITEMS ===== */
+/* Minicart container and footer */
+.nasa-minicart-items,
+.nasa-minicart-footer {
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px;
+}
+
+.nasa-minicart-items {
+  flex: 1 1 auto;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  align-items: stretch;
+}
+
+/* Cart list spacing */
+.nasa-static-sidebar .cart_list {
+  padding: 20px 0;
+}
+
+/* Each item container */
+.nasa-static-sidebar .mini-cart-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  position: relative;
+  border-top: 1px solid var(--color-border-light);
+  padding: 15px 0;
+}
+
+.nasa-static-sidebar .mini-cart-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+/* Product image */
+.nasa-static-sidebar .nasa-image-cart-item {
+  width: 66px;
+  min-width: 66px;
+  flex-shrink: 0;
+}
+
+.nasa-static-sidebar .nasa-image-cart-item img {
+  width: 100%;
+  border: 1px solid var(--color-border-light);
+}
+
+/* Product info block */
+.nasa-static-sidebar .nasa-info-cart-item {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Info container */
+.nasa-static-sidebar .mini-cart-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Name + Remove row */
+.nasa-static-sidebar .mini-cart-info > .nasa-flex.jbw {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Product name */
+.nasa-static-sidebar .mini-cart-info .product-name {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #000;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+/* Product variation (size, color, etc.) */
+.nasa-static-sidebar .variation {
+  margin-top: 5px;
+  font-size: 13px;
+  color: #555;
+}
+
+/* Make quantity Ã— price bold and black */
+.nasa-static-sidebar .mini-cart-item-price .cart_list_product_quantity {
+  font-weight: 700;
+  color: #000;
+}
+
+/* Make only the currency symbol red */
+.nasa-static-sidebar .woocommerce-Price-currencySymbol {
+  color: red;
+}
+
+/* Price alignment */
+.nasa-static-sidebar .mini-cart-item-price {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+/* Remove button */
+.nasa-static-sidebar .product-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.nasa-static-sidebar .product-remove a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.nasa-static-sidebar .product-remove a::before,
+.nasa-static-sidebar .product-remove a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 2px;
+  background: #333;
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+.nasa-static-sidebar .product-remove a::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+
+
+
+
+
+
+
+/* ===== MINI CART FOOTER & BUTTONS ===== */
+.nasa-minicart-footer {
+  z-index: 1;
+  flex: 0 0 auto;
+  padding: 0 15px 25px;
+  background-color: #fff;
+  border-top: 2px solid var(--color-border-light);
+  border-radius: 0 0 10px 10px;
+  box-shadow: 
+    0 -4px 6px rgba(0, 0, 0, 0.05), 
+    0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.ext-mini-cart-wrap {
+  border-top: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0 0;
+}
+.ext-mini-cart-wrap a {
+  font-size: 90%;
+  line-height: 18px;
+  padding: 10px 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid var(--color-border-light);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  color: #333;
+  text-decoration: none;
+  min-width: 80px;
+  margin: 0 5px;
+}
+.ext-mini-cart-wrap a:hover {
+  background-color: #f9f9f9;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.ext-mini-cart-wrap a:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.ext-mini-cart-wrap a svg {
+  height: 20px;
+  width: 18px;
+  margin-bottom: 5px;
+  fill: #333;
+  transition: fill 0.3s ease;
+}
+.ext-mini-cart-wrap a:hover svg {
+  fill: #000;
+}
+.ext-mini-cart-wrap .nssp {
+  width: 1px;
+  height: 30px;
+  border-left: 1px solid #eee;
+  box-shadow: 1px 0 1px rgba(0,0,0,0.05);
+}
+
+
+
+
+
+
+
+
+/* ===== 3D BUTTON STYLES ===== */
+
+
+.woocommerce-mini-cart__buttons .button,
+.woocommerce-mini-cart__buttons .checkout {
+  all: unset; /* Remove global button interference */
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0px 0;
+  padding: 0.3em 1.5em;
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #fff !important;
+  background: var(--wilddragon-secondary-dark) !important;
+  border: 3px solid #000 !important;
+  border-radius: 0.5em;
+  box-shadow:
+    0.1em 0.1em 0 #000,
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-decoration: none !important;
+}
+
+/* Hover Style */
+.woocommerce-mini-cart__buttons .button:hover,
+.woocommerce-mini-cart__buttons .checkout:hover {
+  background: var(--wilddragon-secondary-hover) !important;
+  transform: translate(-0.05em, -0.05em);
+  box-shadow:
+    0.15em 0.15em 0 #000,
+    0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Active Pressed Style */
+.woocommerce-mini-cart__buttons .button:active,
+.woocommerce-mini-cart__buttons .checkout:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow:
+    0.05em 0.05em 0 #000,
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Shine effect on hover */
+.woocommerce-mini-cart__buttons .button::after,
+.woocommerce-mini-cart__buttons .checkout::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.5s ease;
+  border-radius: 0.5em;
+}
+
+.woocommerce-mini-cart__buttons .button:hover::after,
+.woocommerce-mini-cart__buttons .checkout:hover::after {
+  left: 125%;
+}
+
+
+
+
+
+
+
+/* ===== EXTENDED NODES ===== */
+.nasa-static-sidebar .ext-nodes-wrap .ext-node {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  min-height: 100px;
+  max-height: calc(100% - 70px);
+  overflow-y: auto;
+  padding: 35px;
+  background-color: var(--color-background);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  transform: translateY(100%);
+  transition: transform 250ms ease;
+}
+.nasa-static-sidebar .ext-nodes-wrap .ext-node.active {
+  box-shadow: 0 0 15px var(--color-shadow);
+  transform: translateY(0);
+}
+
+.nasa-static-sidebar .ext-nodes-wrap .mini-cart-coupon {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 35px 0 30px;
+}
+
+.nasa-static-sidebar .ext-nodes-wrap .node-title {
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Save Note Button - Styled like WildDragon buttons */
+button#mini-cart-save_note.button.nasa-fullwidth {
+  width: 100%;
+  background: var(--wilddragon-secondary-dark);
+  color: #fff !important;
+  font-family: inherit;
+  padding: 0.75em 1.5em;
+  font-weight: 900;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  border: 3px solid #000000;
+  border-radius: 0.5em;
+  box-shadow:
+    0.1em 0.1em 0 #000000,
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+  background-clip: padding-box;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+  overflow: hidden;
+}
+
+/* Hover effect */
+button#mini-cart-save_note.button.nasa-fullwidth:hover {
+  background: var(--wilddragon-secondary-hover);
+  transform: translate(-0.05em, -0.05em);
+  box-shadow:
+    0.15em 0.15em 0 #000000,
+    0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Active effect */
+button#mini-cart-save_note.button.nasa-fullwidth:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow:
+    0.05em 0.05em 0 #000000,
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Shine effect */
+button#mini-cart-save_note.button.nasa-fullwidth::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  transition: left 0.5s ease;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+button#mini-cart-save_note.button.nasa-fullwidth:hover::after {
+  left: 125%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Publish Coupon Block */
+/* COUPON WRAPPER */
+.publish-coupons {
+  position: relative;
+  max-width: 500px;
+  margin: 30px auto;
+  background: linear-gradient(135deg, var(--wilddragon-secondary-dark), var(--wilddragon-secondary-hover));
+  border-radius: 12px;
+  box-shadow:
+    0.1em 0.1em 0 #000,
+    0 4px 12px rgba(0, 0, 0, 0.2);
+  font-family: var(--font-global);
+  color: #fff;
+  display: flex;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+/* Cutout circles */
+.publish-coupons::before,
+.publish-coupons::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 48px;
+  background: #f0fff3;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.publish-coupons::before {
+  left: -12px;
+}
+
+.publish-coupons::after {
+  right: -12px;
+}
+
+/* Hover lift */
+.publish-coupons:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow:
+    0.15em 0.15em 0 #000,
+    0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Pressed (active) state */
+.publish-coupons:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow:
+    0.05em 0.05em 0 #000,
+    0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Coupon anchor */
+.publish-coupons a.publish-coupon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+  padding: 20px 24px;
+}
+
+/* Left info block */
+.publish-coupons .discount-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  color: #fff;
+}
+
+.publish-coupons .woocommerce-Price-amount.amount {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff !important;
+}
+
+.publish-coupons .discount-info small {
+  font-size: 13px;
+  color: #f0fff3;
+}
+
+/* Right code + expiry */
+.publish-coupons .discount-code {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.publish-coupons .nasa-uppercase {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.publish-coupons .discount-exp {
+  font-size: 12px;
+  color: #e0f7f4;
+  font-weight: 400;
+}
+
+
+
+
+
+
+
+
+
+
+/* ===== TOTAL & PRICE STYLES ===== */
+.nasa-static-sidebar .total-cart-wrap {
+  width: 100%;
+  gap: 10px;
+  align-items: baseline;
+  border-top: 1px solid var(--color-border-light);
+  padding: 15px 0 5px;
+  margin-top: 15px;
+}
+.nasa-static-sidebar .total-price-label2,
+.nasa-static-sidebar .total-price-2 {
+  font-size: 21px;
+}
+
+
+/* ===== RESPONSIVE STYLES ===== */
+@media screen and (max-width: 767px) {
+  .hide-for-small {
+    display: none;
+  }
+
+  .mobile-fs-18 {
+    font-size: 18px !important;
+  }
+
+  .nasa-static-sidebar {
+    -ms-overflow-style: none;
+    overflow: -moz-scrollbars-none;
+    max-width: 90%;
+  }
+  .nasa-static-sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nasa-static-sidebar .nasa-sidebar-tit {
+    font-size: 150%;
+  }
+
+  .nasa-static-sidebar .nasa-minicart-items,
+  .nasa-static-sidebar .nasa-minicart-footer,
+  .nasa-static-sidebar .ext-nodes-wrap .mini-cart-coupon .node-title,
+  .nasa-static-sidebar .ext-nodes-wrap .publish-coupons,
+  .nasa-static-sidebar .ext-nodes-wrap .mini-cart-coupon .coupon-btns,
+  .nasa-static-sidebar .ext-nodes-wrap .mini-cart-shipping,
+  .nasa-static-sidebar .ext-nodes-wrap .mini-cart-note {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nasa-static-sidebar .nasa-sidebar-close {
+    margin-top: 15px;
+  }
+
+  .nasa-static-sidebar .mini-cart-info a {
+    font-size: 15px;
+  }
+}
+
+/* ===== SELECT2 OVERRIDES ===== */
+.select2-container {
+  box-sizing: border-box;
+  display: inline-block;
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+  width: 100% !important;
+}
+
+.select2-container--default .select2-selection--single {
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  height: 42px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  color: #444;
+  line-height: 42px;
+  padding-left: 8px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 42px;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1em;
+  margin: 0 8px;
+  top: 0;
+  right: 0;
+  left: auto;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow b {
+  display: none !important;
+}
+
+.select2-hidden-accessible {
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  height: 1px !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
+}
+
+
+.nasa-static-sidebar .mini-cart-info .nasa-flex.jbw {
+  align-items: center; /* instead of align-start */
+  gap: 8px; /* optional spacing between name and X */
+}
+
+
+
+
+/* ===== PRODUCT REMOVE BUTTON ===== */
+/* Product remove wrapper */
+.nasa-static-sidebar .product-remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 10px;
+  flex-shrink: 0;
+}
+
+/* Button base */
+.nasa-static-sidebar .product-remove a {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid var(--wilddragon-secondary-dark);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* X mark inside */
+.nasa-static-sidebar .product-remove a::before,
+.nasa-static-sidebar .product-remove a::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 3px;
+  background-color: var(--wilddragon-secondary-dark);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 2px;
+}
+.nasa-static-sidebar .product-remove a::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Hover state */
+.nasa-static-sidebar .product-remove a:hover {
+  background-color: var(--wilddragon-secondary-dark);
+}
+.nasa-static-sidebar .product-remove a:hover::before,
+.nasa-static-sidebar .product-remove a:hover::after {
+  background-color: #fff;
+}
+
+
+
+
+
+
+
+/* ===== VARIATION SELECTOR ===== */
+.nasa-static-sidebar .nasa-minicart-items.nasa-change_variation_mini_cart .mini-cart-info .variation {
+  width: fit-content;
+  padding: 0 0 0 5px;
+  background-color: #f5f5f5;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  position: relative;
+  color: #555;
+}
+.nasa-static-sidebar .nasa-minicart-items.nasa-change_variation_mini_cart .mini-cart-info .variation:hover {
+  color: #000;
+  background-color: #f1f1f1;
+}
+.nasa-static-sidebar .nasa-minicart-items.nasa-change_variation_mini_cart .mini-cart-info .variation::after {
+  margin: 0 3px;
+  display: block !important;
+  content: url('data:image/svg+xml,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="25" viewBox="0 0 32 32"><path d="M15.233 19.175l0.754 0.754 6.035-6.035-0.754-0.754-5.281 5.281-5.256-5.256-0.754 0.754 3.013 3.013z" fill="%23555"></path></svg>');
+  transition: var(--transition);
+  height: 25px;
+}
+
+/* ===== SVG ICON TRANSFORMATIONS ===== */
+svg.ns-coupon-icon path {
+  transform: translate(0, 100%) scale(0.00625, -0.00625);
+  -webkit-transform: translate(0, 100%) scale(0.00625, -0.00625);
+  -moz-transform: translate(0, 100%) scale(0.00625, -0.00625);
+  -o-transform: translate(0, 100%) scale(0.00625, -0.00625);
+  -ms-transform: translate(0, 100%) scale(0.00625, -0.00625);
+}
+
+/* ===== FORM ELEMENTS ===== */
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .woocommerce-shipping-calculator {
+  margin-bottom: 0;
+}
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .woocommerce-shipping-calculator p {
+  margin-bottom: 0;
+}
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .woocommerce-shipping-calculator p.form-row {
+  margin-bottom: 20px;
+}
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .button[name="calc_shipping"] {
+  width: 100%;
+}
+
+.nasa-static-sidebar .ext-nodes-wrap .form-row.notes label {
+  display: none;
+}
+.nasa-static-sidebar .ext-nodes-wrap .form-row.notes textarea {
+  min-height: 100px;
+  width: 100% !important;
+}
+
+/* ===== LOADING STATE ===== */
+.nasa-static-sidebar.ext-loading:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-background);
+  opacity: 0.7;
+  z-index: 5;
+}
+.nasa-static-sidebar.ext-loading .nasa-minicart-footer {
+  z-index: unset;
+}
+
+/* ===== CLOSE BUTTONS ===== */
+.nasa-static-sidebar .close-nodes {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+}
+
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .nasa-stclose {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 9;
+  transition: var(--transition);
+}
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .nasa-stclose:hover {
+  background: #f1f1f1;
+}
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .nasa-stclose.small {
+  width: 28px;
+  height: 28px;
+}
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .nasa-stclose.small:before,
+.nasa-static-sidebar .ext-nodes-wrap .ext-node .nasa-stclose.small:after {
+  width: 12px;
+  border-top-width: 1px;
+  top: 14px;
+  left: 8px;
+}
